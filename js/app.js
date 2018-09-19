@@ -78,6 +78,13 @@ function startGame(){
         stars[i].style.color = "#FFD700";
         stars[i].style.visibility = "visible";
     }
+    //reset timer
+    second = 0;
+    minute = 0; 
+    hour = 0;
+    var timer = document.querySelector(".timer");
+    timer.innerHTML = "0 mins 0 secs";
+    clearInterval(interval);
 }
 
 // open show disabled
@@ -145,6 +152,14 @@ function moveCounter(){
     moves++;
     counter.innerHTML = moves;
 
+    //start timer
+    if(moves == 1){
+        second = 0;
+        minute = 0; 
+        hour = 0;
+        startTimer();
+    }
+
     // setting rates based on moves
     if (moves > 8 && moves < 12){
         for( i= 0; i < 3; i++){
@@ -162,18 +177,42 @@ function moveCounter(){
     }
 }
 
+// timer
+var second = 0, minute = 0; hour = 0;
+var timer = document.querySelector(".timer");
+var interval;
+function startTimer(){
+    interval = setInterval(function(){
+        timer.innerHTML = minute+"mins "+second+"secs";
+        second++;
+        if(second == 60){
+            minute++;
+            second=0;
+        }
+        if(minute == 60){
+            hour++;
+            minute = 0;
+        }
+    },1000);
+}
+
     // popup
 function congratulations(){
     if (matchedCard.length == 16){
+
+        clearInterval(interval);
+        finalTime = timer.innerHTML;
+
         // congratulations modal
         modal.classList.add("show");
 
         // star rating
         var starRating = document.querySelector(".stars").innerHTML;
 
-        // move, rating
+        // move, rating, time
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
+        document.getElementById("totalTime").innerHTML = finalTime;
 
         //close icon
         closeModal();

@@ -7,15 +7,18 @@
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+Click on a cards. 
+When you matched all the cards, Popup message shows your score.
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+Click on a cards. 
+If cards are matched, cards will be stay opened and will be not clickable. 
+If cards are not matched, the cards will be flip around (closed) and clickable.
+When you matched all the cards, Popup message shows your score.
+The timer will show how much you spend.
+Moves show how many moves you made.
+Stars show rating.
+reset button will reset moves, stars, timer, and cards.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 # memory-game
